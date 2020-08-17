@@ -1,7 +1,5 @@
 #+TITLE: Jackson's build of DWM
 
-*NOTE* You need to clone and install powerline fonts
-
 * Patches
 + Rotate stack
 + Useless Gaps
