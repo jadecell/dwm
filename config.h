@@ -62,7 +62,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -71,12 +71,13 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_w,      spawn,          CMD("firefox") },
 	{ MODKEY,                       XK_m,      spawn,          CMD("thunderbird-bin") },
-	{ MODKEY,                       XK_r,      spawn,          CMD("alacritty -e ranger") },
+	{ MODKEY,                       XK_r,      spawn,          CMD("st -e ranger") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          CMD("slock") },
 	{ 0,                            XF86XK_AudioLowerVolume,      spawn,          CMD("pulsemixer --change-volume -1") },
 	{ 0,                            XF86XK_AudioRaiseVolume,      spawn,          CMD("pulsemixer --change-volume +1 && pulsemixer --max-volume 100") },
 	{ 0,                            XF86XK_AudioMicMute,          spawn,          CMD("pulsemixer --toggle-mute --id source-2") },
 	{ 0,                            XF86XK_AudioMute,             spawn,          CMD("pulsemixer --toggle-mute") },
+	{ MODKEY,                       XK_F11,      spawn,          CMD("/bin/sh /home/jackson/.config/dmenu/scripts/dmenu-edit-configs.sh") },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
@@ -99,6 +100,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,			            XK_F9,		spawn,		   CMD("/bin/sh /home/jackson/.config/dmenu/scripts/dmenumount.sh") },
+	{ MODKEY,			            XK_F10,		spawn,		   CMD("/bin/sh /home/jackson/.config/dmenu/scripts/dmenuumount.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
