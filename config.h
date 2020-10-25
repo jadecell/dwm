@@ -78,6 +78,10 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioMicMute,          spawn,          CMD("pulsemixer --toggle-mute --id source-2") },
 	{ 0,                            XF86XK_AudioMute,             spawn,          CMD("pulsemixer --toggle-mute") },
 	{ MODKEY,                       XK_F11,      spawn,          CMD("/bin/sh /home/jackson/.config/dmenu/scripts/dmenu-edit-configs.sh") },
+	{ 0,                            XF86XK_AudioPlay,             spawn,          CMD("playerctl -p spotify play-pause") },
+	{ 0,                            XF86XK_AudioStop,             spawn,          CMD("playerctl -p spotify stop") },
+	{ 0,                            XF86XK_AudioPrev,             spawn,          CMD("playerctl -p spotify previous") },
+	{ 0,                            XF86XK_AudioNext,             spawn,          CMD("playerctl -p spotify next") },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
@@ -101,6 +105,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,			            XK_F9,		spawn,		   CMD("/bin/sh /home/jackson/.config/dmenu/scripts/dmenumount.sh") },
+	{ MODKEY,			            XK_F12,		spawn,		   CMD("/bin/sh /home/jackson/.config/dmenu/scripts/dmenu-scrot.sh") },
 	{ MODKEY,			            XK_F10,		spawn,		   CMD("/bin/sh /home/jackson/.config/dmenu/scripts/dmenuumount.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
