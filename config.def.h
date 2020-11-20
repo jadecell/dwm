@@ -5,6 +5,11 @@
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 4;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
+static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Sauce Code Pro Nerd Font:size=10" };
@@ -31,6 +36,11 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       0,            0,           -1 },
+	/* class        instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",        NULL,     NULL,           0,         1,          0,           0,        -1 },
+	{ "Firefox",     NULL,     NULL,           0,         0,          0,          -1,        -1 },
+	{ "Alacritty",   NULL,     NULL,           0,         0,          1,           0,        -1 },
+	{ NULL,          NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -62,7 +72,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "alacritty", "-e", "fish", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -71,10 +81,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_w,      spawn,          CMD("firefox") },
 	{ MODKEY,                       XK_m,      spawn,          CMD("thunderbird-bin") },
-	{ MODKEY,                       XK_r,      spawn,          CMD("alacritty -e ranger") },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          CMD("slock") },
-	{ 0,                            XF86XK_AudioLowerVolume,      spawn,          CMD("pulsemixer --change-volume -1") },
-	{ 0,                            XF86XK_AudioRaiseVolume,      spawn,          CMD("pulsemixer --change-volume +1 && pulsemixer --max-volume 100") },
+	{ 0,                            XF86XK_AudioLowerVolume,      spawn,          CMD("pulsemixer --change-volume -2") },
+	{ 0,                            XF86XK_AudioRaiseVolume,      spawn,          CMD("pulsemixer --change-volume +2 && pulsemixer --max-volume 100") },
 	{ 0,                            XF86XK_AudioMicMute,          spawn,          CMD("pulsemixer --toggle-mute --id source-2") },
 	{ 0,                            XF86XK_AudioMute,             spawn,          CMD("pulsemixer --toggle-mute") },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
