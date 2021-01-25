@@ -23,7 +23,7 @@ static const char col_red[]         = "#e06c75";
 static const char col_yellow[]      = "#e5c07b";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_white, col_gray1, col_gray3 },
+	[SchemeNorm] = { col_white, "#242424", col_gray3 },
 	[SchemeSel]  = { col_white, col_gray2,  col_red },
 };
 
@@ -73,7 +73,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_white, "-sb", col_blue, "-sf", col_white, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", "#242424", "-nf", "#ffffff", "-sb", "#303030", "-sf", "#ff8c00", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
@@ -81,8 +81,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_w,      spawn,          CMD("brave") },
-	{ MODKEY,                       XK_e,      spawn,          CMD("emacs") },
+	{ MODKEY,                       XK_w,      spawn,          CMD("librewolf") },
+	{ MODKEY,                       XK_e,      spawn,          CMD("emacsclient -c -n -a emacs") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          CMD("spotify") },
 	{ MODKEY,                       XK_F6,     spawn,          CMD("~/.config/dmenu/scripts/dmenu-power.sh") },
 	{ MODKEY,                       XK_F7,     spawn,          CMD("~/.config/dmenu/scripts/dmenu-ssh.sh") },
