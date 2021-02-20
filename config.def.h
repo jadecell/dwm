@@ -24,11 +24,14 @@ static char normfgcolor[]                = "#bbbbbb";
 static char selfgcolor[]                 = "#eeeeee";
 static char selbordercolor[]             = "#005577";
 static char selbgcolor[]                 = "#005577";
+
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
        [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
 };
+
+#define TERMINAL "alacritty"
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -77,12 +80,12 @@ static const char *termcmd[]  = { "alacritty", NULL };
  * Xresources preferences to load at startup
  */
 ResourcePref resources[] = {
-		{ "normbgcolor",        STRING,  &normbgcolor },
-		{ "normbordercolor",    STRING,  &normbordercolor },
-		{ "normfgcolor",        STRING,  &normfgcolor },
-		{ "selbgcolor",         STRING,  &selbgcolor },
-		{ "selbordercolor",     STRING,  &selbordercolor },
-		{ "selfgcolor",         STRING,  &selfgcolor },
+		{ "color0",             STRING,  &normbgcolor },
+		{ "color8",             STRING,  &normbordercolor },
+		{ "foreground",         STRING,  &normfgcolor },
+		{ "color1",             STRING,  &selbgcolor },
+		{ "color2",             STRING,  &selbordercolor },
+		{ "foreground",         STRING,  &selfgcolor },
 		{ "borderpx",          	INTEGER, &borderpx },
 		{ "snap",          		INTEGER, &snap },
 		{ "showbar",          	INTEGER, &showbar },
