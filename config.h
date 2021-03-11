@@ -101,6 +101,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("librewolf") },
+	{ MODKEY,                       XK_u,      spawn,          SHCMD(TERMINAL " -e paru -Syu") },
 	{ Mod1Mask|ControlMask,          XK_e,      spawn,          SHCMD("emacsclient -c -n -a emacs") },
 	{ Mod1Mask|ControlMask,          XK_b,      spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(ibuffer)'") },
 	{ Mod1Mask|ControlMask,          XK_d,      spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(dired nil)'") },
