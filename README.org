@@ -1,18 +1,31 @@
 #+TITLE: Jackson's build of DWM
 
 * Patches
-+ Rotate stack
-+ Useless Gaps
+
+- Autostart
+- Fullscreen
+- Hide Vacant Tags
+- Rotate Stack
+- Status2D
+- Swallow
+- Systray
+- Vanity Gaps
+- Warp
+- Xresources
+
 * Install
-#+BEGIN_SRC bash
+
+#+BEGIN_SRC sh
 git clone https://gitlab.com/jadecell/dwm.git
 cd dwm/
 sudo make install
 #+END_SRC
 
 Add to the xinitrc file in the users home directory
-#+BEGIN_SRC bash
+#+BEGIN_SRC sh
 exec dwm
 #+END_SRC
+
 * Contribution
+
 If you want to contribute code, you are free to make a pull request. I will look over it and most likely accept it. I am just one guy and I think I could add some features.
