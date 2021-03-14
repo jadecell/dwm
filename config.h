@@ -1,5 +1,4 @@
 /* See LICENSE file for copyright and license details. */
-#include <X11/XF86keysym.h>
 
 /* appearance */
 static unsigned int borderpx  = 2;        /* border pixel of windows */
@@ -73,7 +72,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", "#242424", "-nf", "#ffffff", "-sb", "#303030", "-sf", "#ff8c00", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", "#242424", "-nf", "#ffffff", "-sb", "#303030", "-sf", selbordercolor, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
 /*
@@ -95,6 +94,7 @@ ResourcePref resources[] = {
 		{ "mfact",      	 	FLOAT,   &mfact },
 };
 
+#include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = dmenucmd } },
@@ -102,17 +102,18 @@ static Key keys[] = {
     { MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_w,      spawn,          SHCMD("librewolf") },
 	{ MODKEY,                       XK_u,      spawn,          SHCMD(TERMINAL " -e paru -Syu") },
-	{ Mod1Mask|ControlMask,          XK_e,      spawn,          SHCMD("emacsclient -c -n -a emacs") },
-	{ Mod1Mask|ControlMask,          XK_b,      spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(ibuffer)'") },
-	{ Mod1Mask|ControlMask,          XK_d,      spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(dired nil)'") },
-	{ Mod1Mask|ControlMask,          XK_n,      spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(elfeed)'") },
-	{ Mod1Mask|ControlMask,          XK_s,      spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(eshell)'") },
+	{ Mod1Mask|ControlMask,         XK_e,      spawn,          SHCMD("emacsclient -c -n -a emacs") },
+	{ Mod1Mask|ControlMask,         XK_b,      spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(ibuffer)'") },
+	{ Mod1Mask|ControlMask,         XK_d,      spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(dired nil)'") },
+	{ Mod1Mask|ControlMask,         XK_n,      spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(elfeed)'") },
+	{ Mod1Mask|ControlMask,         XK_s,      spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(eshell)'") },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          SHCMD("spotify") },
 	{ MODKEY|ControlMask,           XK_u,      spawn,          SHCMD("~/.config/dmenu/scripts/dmenu-unicode.sh") },
 	{ MODKEY|ControlMask,           XK_p,      spawn,          SHCMD("~/.config/dmenu/scripts/dmenu-power.sh") },
 	{ MODKEY|ControlMask,           XK_t,      spawn,          SHCMD("~/.config/dmenu/scripts/dmenu-timer.sh") },
 	{ MODKEY|ControlMask,           XK_s,      spawn,          SHCMD("~/.config/dmenu/scripts/dmenu-ssh.sh") },
 	{ MODKEY|ControlMask|ShiftMask, XK_s,      spawn,          SHCMD("~/.config/dmenu/scripts/dmenu-scrot.sh") },
+	{ MODKEY|ControlMask,           XK_b,      spawn,          SHCMD("~/.config/dmenu/scripts/dmenu-browse.sh") },
 	{ MODKEY|ControlMask,           XK_y,      spawn,          SHCMD("~/.config/dmenu/scripts/dmenu-sysmon.sh") },
 	{ MODKEY|ControlMask,           XK_m,      spawn,          SHCMD("~/.config/dmenu/scripts/dmenu-mount.sh") },
 	{ MODKEY|ControlMask|ShiftMask, XK_m,      spawn,          SHCMD("~/.config/dmenu/scripts/dmenu-umount.sh") },
