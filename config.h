@@ -184,8 +184,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,			XK_c,		killclient,	{0} },
 	{ MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} }, /* tile */
 	{ MODKEY|ShiftMask,		XK_t,		setlayout,	{.v = &layouts[1]} }, /* bstack */
-	{ MODKEY,			XK_u,		setlayout,	{.v = &layouts[4]} }, /* deck */
-	{ MODKEY|ShiftMask,		XK_u,		setlayout,	{.v = &layouts[5]} }, /* monocle */
+	/* { MODKEY,			XK_u,		setlayout,	{.v = &layouts[4]} }, /1* deck *1/ */
+	/* { MODKEY|ShiftMask,		XK_u,		setlayout,	{.v = &layouts[5]} }, /1* monocle *1/ */
 	{ MODKEY,			XK_i,		setlayout,	{.v = &layouts[6]} }, /* centeredmaster */
 	{ MODKEY|ShiftMask,		XK_i,		setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
