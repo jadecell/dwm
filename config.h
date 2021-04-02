@@ -21,8 +21,8 @@ static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#D54646";
-static char selbgcolor[]            = "#790000";
+static char selbordercolor[]        = "#D7BA7D";
+static char selbgcolor[]            = "#7F6E4A";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -149,7 +149,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,                  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return,                  spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_w,                       spawn,          SHCMD("$BROWSER") },
-	{ MODKEY,                       XK_u,                       spawn,          SHCMD(TERMINAL " -e paru -Syu ; pkill -RTMIN+8 dwmblocks") },
 	{ Mod1Mask|ControlMask,         XK_e,                       spawn,          SHCMD("emacsclient -c -n -a emacs") },
 	{ Mod1Mask|ControlMask,         XK_b,                       spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(ibuffer)'") },
 	{ Mod1Mask|ControlMask,         XK_d,                       spawn,          SHCMD("emacsclient -c -n -a emacs --eval '(dired nil)'") },
