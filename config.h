@@ -15,14 +15,14 @@ static int swallowfloating          = 0;        /* 1 means swallow floating wind
 static int smartgaps                = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar                  = 1;        /* 0 means no bar */
 static int topbar                   = 1;        /* 0 means bottom bar */
-static char *fonts[]                = { "Fira Code Nerd Font:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
-static const char dmenufont[]       = "Fira Code Nerd Font:size=10";
+static char *fonts[]                = { "Hack Nerd Font:size=10", "JoyPixels:pixelsize=10:antialias=true:autohint=true"  };
+static const char dmenufont[]       = "Hack Nerd Font:size=10";
 static char normbgcolor[]           = "#222222";
 static char normbordercolor[]       = "#444444";
 static char normfgcolor[]           = "#bbbbbb";
 static char selfgcolor[]            = "#eeeeee";
-static char selbordercolor[]        = "#D7BA7D";
-static char selbgcolor[]            = "#7F6E4A";
+static char selbordercolor[]        = "#23D18B";
+static char selbgcolor[]            = "#157F54";
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -33,6 +33,7 @@ typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
+
 const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {TERMINAL, "-n", "spspot", "-g", "120x34", "-e", "spotify", NULL };
 static Sp scratchpads[] = {
