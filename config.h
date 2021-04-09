@@ -207,6 +207,7 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_q, spawn,
      SHCMD("~/.config/dmenu/scripts/dmenu-prompt.sh 'Quit DWM?' 'killall "
            "xinit'")},
+    {MODKEY, XK_m, spawn, SHCMD(TERMINAL " -e newsboat")},
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_Tab, view, {0}},
