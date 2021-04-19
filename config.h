@@ -25,9 +25,9 @@ static const char dmenufont[] = "JetBrains Mono Nerd Font:size=10";
 static char normbgcolor[] = "#222222";
 static char normbordercolor[] = "#444444";
 static char normfgcolor[] = "#bbbbbb";
-static char selfgcolor[] = "#eeeeee";
-static char selbordercolor[] = "#29B8DB";
-static char selbgcolor[] = "#1e91ae";
+static char selfgcolor[] = "#ebdbb2";
+static char selbordercolor[] = "#cc241d";
+static char selbgcolor[] = "#cc241d";
 static char *colors[][3] = {
     /*               fg           bg           border   */
     [SchemeNorm] = {normfgcolor, normbgcolor, normbordercolor},
@@ -207,7 +207,7 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_q, spawn,
      SHCMD("~/.config/dmenu/scripts/dmenu-prompt.sh 'Quit DWM?' 'killall "
            "xinit'")},
-    {MODKEY, XK_m, spawn, SHCMD(TERMINAL " -e newsboat")},
+    {MODKEY, XK_n, spawn, SHCMD(TERMINAL " -e newsboat")},
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_Tab, view, {0}},
