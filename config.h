@@ -4,6 +4,9 @@
 #define TERMINAL "alacritty"
 #define TERMCLASS "Alacritty"
 
+#define STTERM "st"
+#define STCLASS "St"
+
 /* appearance */
 static unsigned int borderpx = 2; /* border pixel of windows */
 static unsigned int snap = 32;    /* snap pixel */
@@ -22,7 +25,7 @@ static int topbar = 1;  /* 0 means bottom bar */
 static char *fonts[] = {"JetBrains Mono Nerd Font:size=10",
                         "JoyPixels:pixelsize=10:antialias=true:autohint=true"};
 static const char dmenufont[] = "JetBrains Mono Nerd Font:size=10";
-static char normbgcolor[] = "#222222";
+static char normbgcolor[] = "#1e1e1e";
 static char normbordercolor[] = "#444444";
 static char normfgcolor[] = "#d8dee9";
 static char selfgcolor[] = "#d8dee9";
@@ -39,8 +42,8 @@ typedef struct {
   const void *cmd;
 } Sp;
 
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL};
-const char *spcmd2[] = {TERMINAL, "-n", "spspot",  "-g",
+const char *spcmd1[] = {STTERM, "-n", "spterm", "-g", "120x34", NULL};
+const char *spcmd2[] = {STTERM, "-n", "spspot",  "-g",
                         "120x34", "-e", "spotify", NULL};
 static Sp scratchpads[] = {
     /* name          cmd  */
@@ -59,6 +62,7 @@ static const Rule rules[] = {
     /* class    instance      title       	 tags mask    isfloating
        isterminal  noswallow  monitor */
     {TERMCLASS, NULL, NULL, 0, 0, 1, 0, -1},
+    {STCLASS, NULL, NULL, 0, 0, 1, 0, -1},
     {NULL, NULL, "Event Tester", 0, 0, 0, 1, -1},
     {NULL, "spterm", NULL, SPTAG(0), 1, 1, 0, -1},
     {NULL, "spspot", NULL, SPTAG(1), 1, 1, 0, -1},
@@ -208,6 +212,7 @@ static Key keys[] = {
      SHCMD("~/.config/dmenu/scripts/dmenu-prompt.sh 'Quit DWM?' 'killall "
            "xinit'")},
     {MODKEY, XK_n, spawn, SHCMD(TERMINAL " -e newsboat")},
+    {MODKEY, XK_u, spawn, SHCMD(TERMINAL " -e paru -Syu; pkill -RTMIN+8 dwmblocks")},
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_Tab, view, {0}},
