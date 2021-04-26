@@ -43,12 +43,15 @@ typedef struct {
 } Sp;
 
 const char *spcmd1[] = {STTERM, "-n", "spterm", "-g", "120x34", NULL};
-const char *spcmd2[] = {STTERM, "-n", "spspot",  "-g",
+const char *spcmd2[] = {STTERM,   "-n", "spspot",  "-g",
                         "120x34", "-e", "spotify", NULL};
+const char *spcmd3[] = {STTERM,   "-n", "spcalc",        "-g",
+                        "120x34", "-e", "qalculate-gtk", NULL};
 static Sp scratchpads[] = {
     /* name          cmd  */
     {"spterm", spcmd1},
     {"spspot", spcmd2},
+    {"spcalc", spcmd3},
 };
 
 /* tagging */
@@ -66,6 +69,7 @@ static const Rule rules[] = {
     {NULL, NULL, "Event Tester", 0, 0, 0, 1, -1},
     {NULL, "spterm", NULL, SPTAG(0), 1, 1, 0, -1},
     {NULL, "spspot", NULL, SPTAG(1), 1, 1, 0, -1},
+    {NULL, "spcalc", NULL, SPTAG(2), 1, 1, 0, -1},
 };
 
 /* layout(s) */
@@ -212,7 +216,8 @@ static Key keys[] = {
      SHCMD("~/.config/dmenu/scripts/dmenu-prompt.sh 'Quit DWM?' 'killall "
            "xinit'")},
     {MODKEY, XK_n, spawn, SHCMD(TERMINAL " -e newsboat")},
-    {MODKEY, XK_u, spawn, SHCMD(TERMINAL " -e paru -Syu; pkill -RTMIN+8 dwmblocks")},
+    {MODKEY, XK_u, spawn,
+     SHCMD(TERMINAL " -e paru -Syu; pkill -RTMIN+8 dwmblocks")},
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_Tab, view, {0}},
@@ -246,8 +251,12 @@ static Key keys[] = {
     {MODKEY, XK_l, setmfact, {.f = +0.05}},
     {MODKEY, XK_semicolon, shiftview, {.i = 1}},
     {MODKEY | ShiftMask, XK_semicolon, shifttag, {.i = 1}},
-    {MODKEY, XK_apostrophe, togglescratch, {.ui = 1}},
-    {MODKEY | ShiftMask | ControlMask, XK_Return, togglescratch, {.ui = 0}},
+
+    /* Scratchpads */
+    {MODKEY | ControlMask | Mod1Mask, XK_t, togglescratch, {.ui = 0}},
+    {MODKEY | ControlMask | Mod1Mask, XK_s, togglescratch, {.ui = 1}},
+    {MODKEY | ControlMask | Mod1Mask, XK_c, togglescratch, {.ui = 2}},
+
     {MODKEY, XK_z, incrgaps, {.i = +3}},
     {MODKEY, XK_x, incrgaps, {.i = -3}},
     {MODKEY, XK_b, togglebar, {0}},
