@@ -4,8 +4,8 @@
 #define TERMINAL "alacritty"
 #define TERMCLASS "Alacritty"
 
-#define STTERM "st"
-#define STCLASS "St"
+#define TERMINAL "st"
+#define TERMCLASS "St"
 
 /* appearance */
 static unsigned int borderpx = 2; /* border pixel of windows */
@@ -42,10 +42,10 @@ typedef struct {
   const void *cmd;
 } Sp;
 
-const char *spcmd1[] = {STTERM, "-n", "spterm", "-g", "120x34", NULL};
-const char *spcmd2[] = {STTERM,   "-n", "spspot",  "-g",
+const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL};
+const char *spcmd2[] = {TERMINAL, "-n", "spspot",  "-g",
                         "120x34", "-e", "spotify", NULL};
-const char *spcmd3[] = {STTERM,   "-n", "spcalc",        "-g",
+const char *spcmd3[] = {TERMINAL, "-n", "spcalc",        "-g",
                         "120x34", "-e", "qalculate-gtk", NULL};
 static Sp scratchpads[] = {
     /* name          cmd  */
@@ -55,7 +55,8 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+static const char *tags[] = {"I",  "II",  "III",  "IV", "V",
+                             "VI", "VII", "VIII", "IX"};
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -65,7 +66,7 @@ static const Rule rules[] = {
     /* class    instance      title       	 tags mask    isfloating
        isterminal  noswallow  monitor */
     {TERMCLASS, NULL, NULL, 0, 0, 1, 0, -1},
-    {STCLASS, NULL, NULL, 0, 0, 1, 0, -1},
+    {TERMCLASS, NULL, NULL, 0, 0, 1, 0, -1},
     {NULL, NULL, "Event Tester", 0, 0, 0, 1, -1},
     {NULL, "spterm", NULL, SPTAG(0), 1, 1, 0, -1},
     {NULL, "spspot", NULL, SPTAG(1), 1, 1, 0, -1},
@@ -256,6 +257,10 @@ static Key keys[] = {
     {MODKEY | ControlMask | Mod1Mask, XK_t, togglescratch, {.ui = 0}},
     {MODKEY | ControlMask | Mod1Mask, XK_s, togglescratch, {.ui = 1}},
     {MODKEY | ControlMask | Mod1Mask, XK_c, togglescratch, {.ui = 2}},
+
+    /* F Keys */
+    {MODKEY, XK_F1, spawn,
+     SHCMD("sxiv -r -q -t -o ~/.local/repos/wallpapers/*")},
 
     {MODKEY, XK_z, incrgaps, {.i = +3}},
     {MODKEY, XK_x, incrgaps, {.i = -3}},
