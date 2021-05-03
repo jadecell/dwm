@@ -4,8 +4,8 @@
 #define TERMINAL "alacritty"
 #define TERMCLASS "Alacritty"
 
-#define TERMINAL "st"
-#define TERMCLASS "St"
+#define STTERM "st"
+#define STCLASS "St"
 
 /* appearance */
 static unsigned int borderpx = 2; /* border pixel of windows */
@@ -42,10 +42,10 @@ typedef struct {
   const void *cmd;
 } Sp;
 
-const char *spcmd1[] = {TERMINAL, "-n", "spterm", "-g", "120x34", NULL};
-const char *spcmd2[] = {TERMINAL, "-n", "spspot",  "-g",
+const char *spcmd1[] = {STTERM, "-n", "spterm", "-g", "120x34", NULL};
+const char *spcmd2[] = {STTERM, "-n", "spspot",  "-g",
                         "120x34", "-e", "spotify", NULL};
-const char *spcmd3[] = {TERMINAL, "-n", "spcalc",        "-g",
+const char *spcmd3[] = {STTERM, "-n", "spcalc",        "-g",
                         "120x34", "-e", "qalculate-gtk", NULL};
 static Sp scratchpads[] = {
     /* name          cmd  */
@@ -66,7 +66,7 @@ static const Rule rules[] = {
     /* class    instance      title       	 tags mask    isfloating
        isterminal  noswallow  monitor */
     {TERMCLASS, NULL, NULL, 0, 0, 1, 0, -1},
-    {TERMCLASS, NULL, NULL, 0, 0, 1, 0, -1},
+    {STCLASS, NULL, NULL, 0, 0, 1, 0, -1},
     {NULL, NULL, "Event Tester", 0, 0, 0, 1, -1},
     {NULL, "spterm", NULL, SPTAG(0), 1, 1, 0, -1},
     {NULL, "spspot", NULL, SPTAG(1), 1, 1, 0, -1},
