@@ -217,13 +217,14 @@ static Key keys[] = {
      SHCMD("~/.config/dmenu/scripts/dmenu-prompt.sh 'Quit DWM?' 'killall "
            "xinit'")},
     {MODKEY, XK_n, spawn, SHCMD(TERMINAL " -e newsboat")},
+    {MODKEY, XK_t, spawn, SHCMD(TERMINAL " -e tremc")},
     {MODKEY, XK_u, spawn,
      SHCMD(TERMINAL " -e paru -Syu; pkill -RTMIN+8 dwmblocks")},
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_Tab, view, {0}},
     {MODKEY | ShiftMask, XK_c, killclient, {0}},
-    {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},             /* tile */
+    {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[0]}},             /* tile */
     {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[1]}}, /* bstack */
     /* { MODKEY,			        XK_u, setlayout,
        {.v = &layouts[4]} }, /1* deck *1/ */
