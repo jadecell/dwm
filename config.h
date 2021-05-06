@@ -43,9 +43,9 @@ typedef struct {
 } Sp;
 
 const char *spcmd1[] = {STTERM, "-n", "spterm", "-g", "120x34", NULL};
-const char *spcmd2[] = {STTERM, "-n", "spspot",  "-g",
+const char *spcmd2[] = {STTERM,   "-n", "spspot",  "-g",
                         "120x34", "-e", "spotify", NULL};
-const char *spcmd3[] = {STTERM, "-n", "spcalc",        "-g",
+const char *spcmd3[] = {STTERM,   "-n", "spcalc",        "-g",
                         "120x34", "-e", "qalculate-gtk", NULL};
 static Sp scratchpads[] = {
     /* name          cmd  */
@@ -218,13 +218,14 @@ static Key keys[] = {
            "xinit'")},
     {MODKEY, XK_n, spawn, SHCMD(TERMINAL " -e newsboat")},
     {MODKEY, XK_t, spawn, SHCMD(TERMINAL " -e tremc")},
+    {MODKEY | ShiftMask, XK_v, spawn, SHCMD("togglevpn")},
     {MODKEY, XK_u, spawn,
      SHCMD(TERMINAL " -e paru -Syu; pkill -RTMIN+8 dwmblocks")},
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_Tab, view, {0}},
     {MODKEY | ShiftMask, XK_c, killclient, {0}},
-    {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[0]}},             /* tile */
+    {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[0]}}, /* tile */
     {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[1]}}, /* bstack */
     /* { MODKEY,			        XK_u, setlayout,
        {.v = &layouts[4]} }, /1* deck *1/ */
