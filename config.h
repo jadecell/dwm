@@ -26,7 +26,7 @@ static char *fonts[] = {"JetBrains Mono Nerd Font:size=10",
                         "JoyPixels:pixelsize=10:antialias=true:autohint=true"};
 static const char dmenufont[] = "JetBrains Mono Nerd Font:size=10";
 
-static char vibrantcolor[] = "#29B8DB";
+static char vibrantcolor[] = "#23d18b";
 static char backgroundcolor[] = "#1e1e1e";
 static char inactivebordercolor[] = "#444444";
 static char foregroundcolor[] = "#d8dee9";
@@ -71,6 +71,9 @@ static const Rule rules[] = {
     {NULL, "spterm", NULL, SPTAG(0), 1, 1, 0, -1},
     {NULL, "spspot", NULL, SPTAG(1), 1, 1, 0, -1},
     {NULL, "spcalc", NULL, SPTAG(2), 1, 1, 0, -1},
+    {"VirtualBox Manager", NULL, NULL, 0, 1, 0, 1, -1},
+    {"VirtualBox Machine", NULL, NULL, 0, 1, 0, 1, -1},
+    {"VirtualBoxVM", NULL, NULL, 0, 1, 0, 1, -1},
 };
 
 /* layout(s) */
@@ -226,7 +229,7 @@ static Key keys[] = {
     {MODKEY, XK_Tab, view, {0}},
     {MODKEY | ShiftMask, XK_c, killclient, {0}},
     {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[0]}}, /* tile */
-    {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[1]}}, /* bstack */
+    // {MODKEY | ShiftMask, XK_t, setlayout, {.v = &layouts[1]}}, /* bstack */
     /* { MODKEY,			        XK_u, setlayout,
        {.v = &layouts[4]} }, /1* deck *1/ */
     /* { MODKEY|ShiftMask,          XK_u, setlayout,
