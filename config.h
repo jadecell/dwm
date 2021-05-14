@@ -34,7 +34,7 @@ static char foregroundcolor[] = "#d8dee9";
 static char *colors[][3] = {
     /*               fg           bg           border   */
     [SchemeNorm] = {foregroundcolor, backgroundcolor, inactivebordercolor},
-    [SchemeSel]  = {vibrantcolor, backgroundcolor, vibrantcolor},
+    [SchemeSel] = {vibrantcolor, backgroundcolor, vibrantcolor},
 };
 
 typedef struct {
@@ -55,8 +55,7 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = {"1",  "2",  "3",  "4", "5",
-                             "6", "7", "8", "9"};
+static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -72,8 +71,8 @@ static const Rule rules[] = {
     {NULL, "spspot", NULL, SPTAG(1), 1, 1, 0, -1},
     {NULL, "spcalc", NULL, SPTAG(2), 1, 1, 0, -1},
     {"VirtualBox Manager", NULL, NULL, 0, 1, 0, 1, -1},
-    {"VirtualBox Machine", NULL, NULL, 0, 1, 0, 1, -1},
-    {"VirtualBoxVM", NULL, NULL, 0, 1, 0, 1, -1},
+    /* {"VirtualBox Machine", NULL, NULL, 0, 1, 0, 1, -1}, */
+    /* {"VirtualBoxVM", NULL, NULL, 0, 1, 0, 1, -1}, */
 };
 
 /* layout(s) */
@@ -128,10 +127,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = {"dmenu_run",    "-m",  dmenumon,  "-fn",
-                                 dmenufont,      "-nb", "#1e1e1e", "-nf",
-                                 "#abb2bf",      "-sb", "#303030", "-sf",
-                                 vibrantcolor, NULL};
+static const char *dmenucmd[] = {
+    "dmenu_run", "-m",  dmenumon,  "-fn", dmenufont,    "-nb", "#1e1e1e", "-nf",
+    "#abb2bf",   "-sb", "#303030", "-sf", vibrantcolor, NULL};
 static const char *termcmd[] = {TERMINAL, NULL};
 
 /*
@@ -219,11 +217,11 @@ static Key keys[] = {
     {MODKEY | ShiftMask, XK_q, spawn,
      SHCMD("~/.config/dmenu/scripts/dmenu-prompt.sh 'Quit DWM?' 'killall "
            "xinit'")},
-    {MODKEY, XK_n, spawn, SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks")},
+    {MODKEY, XK_n, spawn,
+     SHCMD(TERMINAL " -e newsboat; pkill -RTMIN+6 dwmblocks")},
     {MODKEY, XK_t, spawn, SHCMD(TERMINAL " -e tremc")},
     {MODKEY | ShiftMask, XK_v, spawn, SHCMD("togglevpn")},
-    {MODKEY, XK_u, spawn,
-     SHCMD(TERMINAL " -e update-system")},
+    {MODKEY, XK_u, spawn, SHCMD(TERMINAL " -e update-system")},
     {MODKEY, XK_0, view, {.ui = ~0}},
     {MODKEY | ShiftMask, XK_0, tag, {.ui = ~0}},
     {MODKEY, XK_Tab, view, {0}},
