@@ -26,10 +26,10 @@ static char *fonts[] = {"JetBrains Mono Nerd Font:size=10",
                         "JoyPixels:pixelsize=10:antialias=true:autohint=true"};
 static const char dmenufont[] = "JetBrains Mono Nerd Font:size=10";
 
-static char vibrantcolor[] = "#23d18b";
-static char backgroundcolor[] = "#1e1e1e";
+static char vibrantcolor[] = "#e06c75";
+static char backgroundcolor[] = "#181a1f";
 static char inactivebordercolor[] = "#444444";
-static char foregroundcolor[] = "#d8dee9";
+static char foregroundcolor[] = "#abb2bf";
 
 static char *colors[][3] = {
     /*               fg           bg           border   */
@@ -128,7 +128,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
-    "dmenu_run", "-m",  dmenumon,  "-fn", dmenufont,    "-nb", "#1e1e1e", "-nf",
+    "dmenu_run", "-m",  dmenumon,  "-fn", dmenufont,    "-nb", backgroundcolor, "-nf",
     "#abb2bf",   "-sb", "#303030", "-sf", vibrantcolor, NULL};
 static const char *termcmd[] = {TERMINAL, NULL};
 
