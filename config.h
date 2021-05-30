@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "alacritty"
-#define TERMCLASS "Alacritty"
+#define TERMINAL "st"
+#define TERMCLASS "St"
 
 #define STTERM "st"
 #define STCLASS "St"
@@ -26,7 +26,7 @@ static char *fonts[] = {"JetBrains Mono Nerd Font:size=10",
                         "JoyPixels:pixelsize=10:antialias=true:autohint=true"};
 static const char dmenufont[] = "JetBrains Mono Nerd Font:size=10";
 
-static char vibrantcolor[] = "#29b8db";
+static char vibrantcolor[] = "#23d18b";
 static char backgroundcolor[] = "#1e1e1e";
 static char inactivebordercolor[] = "#444444";
 static char foregroundcolor[] = "#d8dee9";
