@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "st"
-#define TERMCLASS "St"
+#define TERMINAL "alacritty"
+#define TERMCLASS "Alacritty"
 
 #define STTERM "st"
 #define STCLASS "St"
@@ -70,7 +70,8 @@ static const Rule rules[] = {
     {NULL, "spterm", NULL, SPTAG(0), 1, 1, 0, -1},
     {NULL, "spspot", NULL, SPTAG(1), 1, 1, 0, -1},
     {NULL, "spcalc", NULL, SPTAG(2), 1, 1, 0, -1},
-    {"VirtualBox Manager", NULL, NULL, 0, 1, 0, 1, -1},
+    {"Virt-manager", NULL, NULL, 0, 1, 0, 1, -1},
+    /* {"VirtualBox Manager", NULL, NULL, 0, 1, 0, 1, -1}, */
     /* {"VirtualBox Machine", NULL, NULL, 0, 1, 0, 1, -1}, */
     /* {"VirtualBoxVM", NULL, NULL, 0, 1, 0, 1, -1}, */
 };
