@@ -66,7 +66,8 @@ static const Rule rules[] = {
        isterminal  noswallow  monitor */
     {TERMCLASS, NULL, NULL, 0, 0, 1, 0, -1},
     {STCLASS, NULL, NULL, 0, 0, 1, 0, -1},
-    {NULL, NULL, "Event Tester", 0, 0, 0, 1, -1},
+    {NULL, NULL, "Event Tester", 0, 1, 0, 1, -1},
+    {NULL, NULL, "About Mozilla Firefox", 0, 1, 0, 1, -1},
     {NULL, "spterm", NULL, SPTAG(0), 1, 1, 0, -1},
     {NULL, "spspot", NULL, SPTAG(1), 1, 1, 0, -1},
     {NULL, "spcalc", NULL, SPTAG(2), 1, 1, 0, -1},
