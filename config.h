@@ -193,7 +193,7 @@ static Key keys[] = {
     {MODKEY | ControlMask, XK_t, spawn,
      SHCMD("~/.config/dmenu/scripts/dmenu-timer.sh")},
     {MODKEY | ControlMask, XK_s, spawn,
-     SHCMD("/home/jackson/.config/dmenu/scripts/dmenu-ssh.sh")},
+     SHCMD("~/.config/dmenu/scripts/dmenu-ssh.sh")},
     {MODKEY | ControlMask | ShiftMask, XK_s, spawn,
      SHCMD("~/.config/dmenu/scripts/dmenu-scrot.sh")},
     {MODKEY | ControlMask, XK_b, spawn,
