@@ -226,7 +226,7 @@ static Key keys[] = {
      SHCMD("music-control stop")},
     {MODKEY | ShiftMask, XK_q, spawn, SHCMD("sysact")},
     {MODKEY, XK_n, spawn,
-     SHCMD(TERMINAL " -e newsboat")},
+     SHCMD(TERMINAL " -e newsboat && pkill -RTMIN+6 dwmblocks")},
     {MODKEY, XK_t, spawn, SHCMD(TERMINAL " -e stig")},
     {MODKEY | ShiftMask, XK_t, spawn, SHCMD("starttorrent")},
     {MODKEY, XK_m, spawn, SHCMD(TERMINAL " -e ncmpcpp")},
