@@ -1,8 +1,8 @@
 /* See LICENSE file for copyright and license details. */
 
 /* Constants */
-#define TERMINAL "kitty"
-#define TERMCLASS "kitty"
+#define TERMINAL "alacritty"
+#define TERMCLASS "Alacritty"
 
 #define STTERM "st"
 #define STCLASS "St"
