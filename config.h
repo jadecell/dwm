@@ -175,7 +175,7 @@ static Key keys[] = {
     {MODKEY | ShiftMask | ControlMask, XK_Return, spawn,
      SHCMD("~/.config/rofi/launchers/colorful/launcher.sh")},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
-    {MODKEY, XK_w, spawn, SHCMD("chromium")},
+    {MODKEY, XK_w, spawn, SHCMD("firefox")},
     {Mod1Mask | ControlMask, XK_e, spawn, SHCMD("emacsclient -c -n -a emacs")},
     {Mod1Mask | ControlMask, XK_b, spawn,
      SHCMD("emacsclient -c -n -a emacs --eval '(ibuffer)'")},
