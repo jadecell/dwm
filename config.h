@@ -175,7 +175,7 @@ static Key keys[] = {
     {MODKEY | ShiftMask | ControlMask, XK_Return, spawn,
      SHCMD("~/.config/rofi/launchers/colorful/launcher.sh")},
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
-    {MODKEY, XK_w, spawn, SHCMD("brave")},
+    {MODKEY, XK_w, spawn, SHCMD("firefox")},
     {Mod1Mask | ControlMask, XK_e, spawn, SHCMD("emacsclient -c -n -a emacs")},
     {Mod1Mask | ControlMask, XK_b, spawn,
      SHCMD("emacsclient -c -n -a emacs --eval '(ibuffer)'")},
@@ -278,7 +278,6 @@ static Key keys[] = {
     /* F Keys */
     {MODKEY, XK_F1, spawn,
      SHCMD("sxiv -r -q -t -o ~/.local/repos/wallpapers/*")},
-    {MODKEY, XK_F2, spawn, SHCMD("~/.local/bin/togglesystray")},
 
     {MODKEY, XK_z, incrgaps, {.i = +3}},
     {MODKEY, XK_x, incrgaps, {.i = -3}},
